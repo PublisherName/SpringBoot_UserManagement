@@ -36,3 +36,36 @@ This is a User Management web application built with Spring Boot. It allows you 
    ```bash
    git clone git@github.com:PublisherName/SpringBoot_UserManagement.git
     ```
+2. Create a MySQL database named `user_management` (or whatever you want to name it).
+3. Create a file named `application.properties` in the `src/main/resources` directory.
+4. Add the following lines to `application.properties`:
+
+   ```properties
+   spring.datasource.url=jdbc:mysql://localhost:3306/user_management
+   spring.datasource.username=<username>
+   spring.datasource.password=<password>
+
+   spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.MySQLDialect
+   spring.jpa.hibernate.ddl-auto=update
+   ```
+5. Replace `<username>` and `<password>` with your MySQL username and password, respectively.
+6. Run the application with Maven:
+
+   ```bash
+   mvn spring-boot:run
+   ```
+7. Open your browser and go to `http://localhost:8080`.
+
+## License
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+
+## Acknowledgements
+
+- [Spring Boot](https://spring.io/projects/spring-boot)
+- [Spring Security](https://spring.io/projects/spring-security)
+- [Spring Data JPA](https://spring.io/projects/spring-data-jpa)
+- [Thymeleaf](https://www.thymeleaf.org/)
+- [Bootstrap](https://getbootstrap.com/)
+
+
