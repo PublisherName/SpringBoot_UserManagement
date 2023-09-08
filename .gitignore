@@ -1,0 +1,60 @@
+# Spring Boot specific
+/target/
+*.iml
+.idea/
+mvnw
+mvnw.cmd
+
+# Eclipse specific
+.classpath
+.project
+.settings/
+
+# IntelliJ IDEA specific
+*.iml
+.idea/
+
+# NetBeans specific
+/nb-configuration.xml
+
+# Gradle specific
+.gradle/
+build/
+
+# Logs
+logs/
+*.log
+*.log.*
+*.access
+*.lck
+
+# Caches
+/target/classes/
+/target/test-classes/
+/.idea/
+
+# Compiled class file
+*.class
+
+# Compiled JAR file
+*.jar
+
+# Package files
+*.war
+*.ear
+
+# Generated files
+gen-*
+
+# Miscellaneous
+bin/
+.idea
+.settings/
+*.swp
+*~
+*.swp
+.DS_Store
+Thumbs.db
+
+# VSCode specific
+.vscode/
