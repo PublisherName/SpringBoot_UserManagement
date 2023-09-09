@@ -20,6 +20,7 @@ This is a User Management web application built with Spring Boot. It allows you 
 - **MySQL**: Database
 - **Thymeleaf**: Template engine
 - **Bootstrap**: CSS framework
+- **Sb Admin 2**: Bootstrap admin theme
 
 ## Getting Started
 
@@ -67,5 +68,4 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 - [Spring Data JPA](https://spring.io/projects/spring-data-jpa)
 - [Thymeleaf](https://www.thymeleaf.org/)
 - [Bootstrap](https://getbootstrap.com/)
-
-
+- [Sb Admin 2](https://startbootstrap.com/themes/sb-admin-2/)

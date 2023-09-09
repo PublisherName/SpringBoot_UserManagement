@@ -28,7 +28,9 @@ public class SpringSecurity {
         public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
                 http
                                 .authorizeHttpRequests((authorize) -> authorize
+                                                .requestMatchers("/webjars/**").permitAll()
                                                 .requestMatchers("/register/**").permitAll()
+                                                .requestMatchers("/forgot/**").permitAll()
                                                 .requestMatchers("/index").permitAll()
                                                 .requestMatchers("/").permitAll()
                                                 .requestMatchers("/users").hasRole("ADMIN"))

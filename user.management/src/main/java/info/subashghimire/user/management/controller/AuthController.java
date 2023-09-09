@@ -12,12 +12,12 @@ public class AuthController {
 
     @GetMapping("/")
     public String root(Model model){
-        return "index";
+        return "redirect:login";
     }
 
     @GetMapping("/index")
     public String home(Model model){
-        return "index";
+        return "redirect: login";
     }
 
     @GetMapping("/login")
@@ -37,11 +37,16 @@ public class AuthController {
 
     @GetMapping("/forgot")
     public String forgotPassword(Model model){
-        return "login/forgotPassword";
+        return "login/forgot_password";
     }
 
-    @GetMapping("dashboard/users")
+    @PostMapping("/forgot/process")
+    public String processForgotPassword(Model model){
+        return "login/forgot_password";
+    }
+
+    @GetMapping("/users")
     public String users(Model model){
-        return "users";
+        return "dashboard/users";
     }
 }
