@@ -17,39 +17,55 @@
                             <div class="text-center">
                                 <h1 class="h4 text-gray-900 mb-4">Create an Account!</h1>
                             </div>
-                            <form class="user" method="post" role="form" th:action="@{/register/save}">
+                            <form class="user" method="post" role="form" th:object="${user}"
+                                th:action="@{/register/save}">
+
                                 <div th:if="${param.success}" class="alert alert-success" role="alert">
-                                    This is a primary alert—check it out!
+                                    <span>Congratulations user account has been created. Please <a th:href="@{/login}">login.</a></span>
                                 </div>
-                                <div th:if="${param.error}" class="alert alert-danger" role="alert">
-                                    This is a danger alert—check it out!
+
+                                <div class="form-group row">
+
+                                    <div class="col-sm-6 mb-3 mb-sm-0">
+                                        <input type="text" class="form-control form-control-user" id="firstName"
+                                            name="firstName" th:field="*{firstName}" placeholder="Enter First Name"
+                                            required />
+                                        <p th:errors="*{firstName}" class="text-danger"
+                                            th:if="${#fields.hasErrors('firstName')}"></p>
+                                    </div>
+
+                                    <div class="col-sm-6">
+                                        <input type="text" class="form-control form-control-user" id="lastName"
+                                            name="lastName" th:field="*{lastName}" placeholder="Enter Surname"
+                                            required />
+                                        <p th:errors="*{lastName}" class="text-danger"
+                                            th:if="${#fields.hasErrors('lastName')}"></p>
+                                    </div>
                                 </div>
                                 <div class="form-group">
-                                        <input type="text" class="form-control form-control-user" 
-                                        id="name" name="name" placeholder="Enter Name">
-                                </div>
-                                <div class="form-group">
-                                    <input type="email" class="form-control form-control-user" 
-                                    id="email" name="email" placeholder="Email Address">
+                                    <input type="email" class="form-control form-control-user" id="email" name="email"
+                                        th:field="*{email}" placeholder="Email Address" required />
+                                    <p th:errors="*{email}" class="text-danger" th:if="${#fields.hasErrors('email')}">
+                                    </p>
                                 </div>
                                 <div class="form-group row">
                                     <div class="col-sm-6 mb-3 mb-sm-0">
-                                        <input type="password" class="form-control form-control-user"
-                                            id="password" name="password" placeholder="Enter Password">
+                                        <input type="password" class="form-control form-control-user" id="password"
+                                            name="password" th:field="*{password}" placeholder="Enter Password"
+                                            required />
+                                        <p th:errors="*{password}" class="text-danger"
+                                            th:if="${#fields.hasErrors('password')}"></p>
                                     </div>
                                     <div class="col-sm-6">
                                         <input type="password" class="form-control form-control-user"
-                                            id="confirm_password" name="confirm_password" placeholder="Repeat Password">
+                                            id="confirmPassword" name="confirmPassword" th:field="*{confirmPassword}"
+                                            placeholder="Repeat Password" required />
+                                        <p th:errors="*{confirmPassword}" class="text-danger"
+                                            th:if="${#fields.hasErrors('confirmPassword')}"></p>
                                     </div>
                                 </div>
-                                <input type="submit" class="btn btn-primary btn-user btn-block" value="Register Account">
-                                <hr>
-                                <a href="#" class="btn btn-google btn-user btn-block">
-                                    <i class="fab fa-google fa-fw"></i> Register with Google
-                                </a>
-                                <a href="#" class="btn btn-facebook btn-user btn-block">
-                                    <i class="fab fa-facebook-f fa-fw"></i> Register with Facebook
-                                </a>
+                                <input type="submit" class="btn btn-primary btn-user btn-block"
+                                    value="Register Account">                                
                             </form>
                             <hr>
                             <div class="text-center">
