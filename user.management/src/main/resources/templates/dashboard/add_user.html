@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<div th:replace="~{common/dashboard/header :: common-dashboard-header}"></div>
+
+<body id="page-top">
+
+    <div id="wrapper">
+
+        <div th:replace="~{common/dashboard/navbar :: common-dashboard-navbar}"></div>
+        <div id="content-wrapper" class="d-flex flex-column">
+
+            <div id="content">
+
+                <div th:replace="~{common/dashboard/topbar :: common-dashboard-topbar}"></div>
+                <div class="container-fluid">
+                    <h1 class="h3 mb-2 text-gray-800">Create :: User</h1>
+                    <div class="card shadow mb-4">
+                        <div class="card-header py-3">
+                            <h6 class="m-0 font-weight-bold text-primary">User :: Add</h6>
+                        </div>
+                        <div class="card-body">
+                            <!-- Content goes here.-->
+                            <div class="row">
+                                <div class="col-xl-12 col-md-12 mb-4">
+                                    <form role="form" th:object="${user}" method="post" th:action="@{/register/save}" />
+                                    <div class="form-row">
+                                        <div class="form-group col-md-6">
+                                            <label for="first_name">First Name</label>
+                                            <input type="text" class="form-control" id="firstName"
+                                                placeholder="Your first name" name="firstName">
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label for="last_name">Last Name</label>
+                                            <input type="text" class="form-control" id="lastName"
+                                                placeholder="your last name" name="lastName">
+                                        </div>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="form-group col-md-12">
+                                            <label for="email">Email</label>
+                                            <input type="email" class="form-control" id="email"
+                                                placeholder="Enter your email" name="email">
+                                        </div>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="form-group col-md-6">
+                                            <label for="password">Password</label>
+                                            <input type="password" class="form-control" id="password"
+                                                placeholder="Password" name="password">
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label for="confirm_password">Confirm Password</label>
+                                            <input type="password" class="form-control" id="confirmPassword"
+                                                placeholder="Password" name="confirmPassword">
+                                        </div>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary">Add User</button>
+
+                                    </form>
+                                </div>
+                            </div>
+                            <!-- Content row.-->
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+            <div th:replace="~{common/dashboard/footer :: common-dashboard-footer}"></div>
+
+        </div>
+
+    </div>
+    <div th:replace="~{common/dashboard/includes :: common-dashboard-includes}"></div>
+
+</body>
+
+</html>

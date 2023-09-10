@@ -12,6 +12,7 @@ import info.subashghimire.user.management.service.UserService;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
@@ -50,6 +51,19 @@ public class UserServiceImpl implements UserService {
         return userRepository.findByEmail(email);
     }
 
+    public UserDto findUserById(Long userId) {
+        Optional<User> userOptional = userRepository.findById(userId);
+        if(userOptional.isPresent()){
+            return mapToUserDto(userOptional.get());
+        }
+        return null;
+    }
+
+    public boolean doesUserExist(Long userId) {
+        Optional<User> userOptional = userRepository.findById(userId);
+        return userOptional.isPresent();
+    }
+
     @Override
     public List<UserDto> findAllUsers() {
         List<User> users = userRepository.findAll();
@@ -57,13 +71,24 @@ public class UserServiceImpl implements UserService {
                 .map((user) -> mapToUserDto(user))
                 .collect(Collectors.toList());
     }
+        
+    public void deleteUserById(Long userId) {
+        Optional<User> userOptional = userRepository.findById(userId);
+        userOptional.ifPresent(user -> {
+            user.getRoles().clear();
+            userRepository.delete(user);
+        });
+    }
+
 
     private UserDto mapToUserDto(User user){
         UserDto userDto = new UserDto();
+        userDto.setId(user.getId());
         String[] str = user.getName().split(" ");
         userDto.setFirstName(str[0]);
         userDto.setLastName(str[1]);
         userDto.setEmail(user.getEmail());
+        userDto.setRole(user.getRoles().get(0).getName());
         return userDto;
     }
 
